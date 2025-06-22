@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import './Detail.css';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { GlobalContext } from '../../context/GlobalContext';
 
 export default function Detail(){
 
@@ -10,7 +11,7 @@ export default function Detail(){
   // 서버에서 받아온 상세정보를 저장할 state
   const [foodDetailData, setFoodDetailData] = useState(null);
   // Context API에서 즐겨찾기 목록과 즐겨찾기 추가하기 함수를 받아온다
-
+  const {favoritesList, hUpdateFavoritesList} = useContext(GlobalContext);
 
   // 디테일 항목에 대한 정보를 다시 fetch로 서버에 요청해서 받아온다
   // 컴포넌트 시작될때 받아온다 useEffect
@@ -43,7 +44,15 @@ export default function Detail(){
       <section>
         <span>{foodDetailData?.recipe?.publisher}</span>
         <h3>{foodDetailData?.recipe?.title}</h3>
-        <button onClick={}>즐겨찾기 추가</button>
+        <button onClick={()=>{hUpdateFavoritesList(foodDetailData.recipe)}}>
+          {/* 이미 있었으면 `즐겨찾기 제거`, 없었으면 `즐겨찾기 추가` */}
+          {
+            favoritesList?.length > 0 && (
+              favoritesList.findIndex(
+                (item)=>item?.id === foodDetailData?.recipe?.id)) !== -1 ?
+                 `즐겨찾기 제거` : `즐겨찾기 추가`
+          }
+        </button>
         <div>
           <span>재료: </span>
           <ul>

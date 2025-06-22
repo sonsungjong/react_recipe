@@ -57,10 +57,23 @@ export default function GlobalState({children}){
   // 즐겨찾기 목록에 이미 있으면 제거를 하고
   // 즐겨찾기 목록에 없으면 추가를 한다
   // favoritesList, setFavoritesList
-  function hUpdateFavoritesList(){
-    // push
+  function hUpdateFavoritesList(getItem){
+    let copyFavoritesList = [...favoritesList]
+    // 위치를 찾아본다
+    // findIndex : 배열에서 조건을 찾아보고 있으면 index번호를 알려주고, 없으면 -1을 알려준다
+    const index = copyFavoritesList.findIndex((item)=>{
+      return item.id === getItem.id});
 
-    // splice
+    if(index === -1){
+      // 없었다 => push 로 추가
+      copyFavoritesList.push(getItem);
+    }
+    else{
+      // 이미 있었다 => splice(index, 1) 제거
+      copyFavoritesList.splice(index, 1);
+    }
+
+    setFavoritesList(copyFavoritesList);
   }
 
   return(
