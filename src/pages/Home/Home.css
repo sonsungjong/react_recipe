@@ -1,0 +1,61 @@
+.Home_container{
+  margin-top: 2em;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.Home_no_search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #f0f8ff; /* 연한 파란색 배경 */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%; /* 너비를 꽉 채우거나 특정 max-width 설정 */
+  max-width: 600px; /* 너무 넓어지지 않도록 최대 너비 설정 */
+  margin: auto; /* Home_container 안에서 가운데 정렬 */
+  height: 300px; /* 일정한 높이 유지 */
+}
+
+.Home_no_search h3 {
+  font-size: 2.2em;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.Home_no_search p {
+  font-size: 1.1em;
+  color: #666;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+.Home_no_search button {
+  background-color: #007bff; /* 버튼 배경색 */
+  color: #fff; /* 버튼 글자색 */
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-decoration: none; /* a 태그 내부이므로 */
+  display: inline-block; /* a 태그에 패딩 적용을 위해 */
+}
+
+.Home_no_search button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.Home_no_search button:active {
+  transform: translateY(0);
+}
+
+.Home_no_search a {
+  text-decoration: none; /* <a> 태그의 기본 밑줄 제거 */
+}

@@ -1,0 +1,91 @@
+/* Navbar.css */
+
+.top-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 80px;
+  background-color: #f8f8f8; /* 배경색 추가 */
+  padding: 0 20px; /* 좌우 패딩 추가 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 그림자 효과 추가 */
+}
+
+/* My Recipe 로고/제목 스타일 */
+.top-nav div:first-child h2 {
+  margin: 0; /* 기본 마진 제거 */
+  font-size: 1.8em; /* 글자 크기 키우기 */
+}
+
+.top-nav div:first-child a {
+  text-decoration: none; /* 밑줄 제거 */
+  color: #333; /* 글자 색상 */
+  transition: color 0.3s ease; /* 호버 효과를 위한 전환 */
+}
+
+.top-nav div:first-child a:hover {
+  color: #007bff; /* 호버 시 색상 변경 */
+}
+
+/* 검색 폼 스타일 */
+.top-nav form {
+  display: flex; /* input과 button이 있다면 정렬 */
+}
+
+.top-nav input[type='text'] {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1em;
+  width: 250px; /* 너비 지정 */
+  outline: none; /* 포커스 시 아웃라인 제거 */
+  transition: border-color 0.3s ease;
+}
+
+.top-nav input[type='text']:focus {
+  border-color: #007bff; /* 포커스 시 테두리 색상 변경 */
+}
+
+/* 네비게이션 목록 (Home, Favorites) 스타일 */
+.top-nav ul {
+  display: flex;
+  align-items: center;
+  gap: 1.5em; /* 메뉴 항목 간 간격 */
+  list-style: none; /* 목록 마커 제거 */
+  margin: 0; /* 기본 마진 제거 */
+  padding: 0; /* 기본 패딩 제거 */
+}
+
+.top-nav ul li a {
+  text-decoration: none; /* 밑줄 제거 */
+  color: #555; /* 링크 글자 색상 */
+  font-size: 1.1em; /* 글자 크기 */
+  padding: 5px 0; /* 위아래 패딩 */
+  position: relative; /* 밑줄 효과를 위한 설정 */
+}
+
+.top-nav ul li a:hover {
+  color: #007bff; /* 호버 시 색상 변경 */
+}
+
+/* 활성 링크에 대한 시각적 피드백 (선택 사항) */
+/* Link 컴포넌트가 활성화되었을 때 적용할 클래스 또는 스타일 */
+.top-nav ul li a.active {
+  font-weight: bold;
+  color: #007bff;
+}
+
+/* 호버 시 밑줄 애니메이션 (선택 사항) */
+.top-nav ul li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #007bff;
+  transition: width 0.3s ease-out;
+}
+
+.top-nav ul li a:hover::after {
+  width: 100%;
+}

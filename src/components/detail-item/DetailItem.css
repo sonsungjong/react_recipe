@@ -1,0 +1,134 @@
+
+/*
+.DetailItem_container{
+  width:20rem;
+  padding:1.25rem;
+}
+
+.DetailItem_container header img{
+  width: 276px;
+  height:160px;
+}
+
+.DetailItem_container div span{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.DetailItem_container div h3{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+  */
+
+/* DetailItem.css */
+
+.DetailItem_container {
+  width: 20rem; /* 고정 너비 (혹은 max-width로 변경 고려) */
+  padding: 1.25rem;
+  background-color: #ffffff; /* 배경색 */
+  border-radius: 8px; /* 모서리 둥글게 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* 은은한 그림자 */
+  display: flex; /* 내부 요소들을 flex로 정렬 (이미지 + 텍스트) */
+  flex-direction: column; /* 세로 방향 정렬 */
+  align-items: center; /* 가운데 정렬 */
+  text-align: center; /* 텍스트 가운데 정렬 */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* 호버 효과를 위한 전환 */
+  margin: 1rem; /* 각 아이템 간 간격 */
+}
+
+.DetailItem_container:hover {
+  transform: translateY(-5px); /* 호버 시 살짝 위로 */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* 호버 시 그림자 진하게 */
+}
+
+/* 이미지 스타일 */
+.DetailItem_container header img {
+  width: 276px; /* 부모(DetailItem_container) 너비에 맞춤 */
+  height: 160px; /* 고정 높이 */
+  object-fit: cover; /* 이미지 비율 유지하며 채우기 */
+  border-radius: 6px; /* 이미지 모서리 둥글게 */
+  margin-bottom: 1rem; /* 이미지 아래 간격 */
+}
+
+/* 텍스트 컨테이너 (publisher, title, button 포함 div) */
+.DetailItem_container > div {
+  width: 100%; /* 부모 너비에 맞춤 */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 텍스트 및 버튼 가운데 정렬 */
+}
+
+/* Publisher (출처) 스타일 */
+.DetailItem_container div span {
+  font-size: 0.9em;
+  color: #777;
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%; /* 넘칠 경우 ellipsis 적용을 위해 필요 */
+}
+
+/* Title (제목) 스타일 */
+.DetailItem_container div h3 {
+  font-size: 1.3em;
+  color: #333;
+  margin: 0 0 1rem 0; /* 위 아래 마진 조절 */
+  height: 2.8em; /* 두 줄까지 표시 가능하도록 높이 고정 (font-size * line-height * 2) */
+  line-height: 1.4em; /* 줄 간격 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box; /* 여러 줄 ellipsis를 위한 설정 */
+  -webkit-line-clamp: 2; /* 두 줄까지 표시 */
+  -webkit-box-orient: vertical;
+  max-width: 100%; /* 넘칠 경우 ellipsis 적용을 위해 필요 */
+}
+
+/* 버튼 스타일 */
+.DetailItem_container button {
+  background-color: #007bff; /* 버튼 배경색 */
+  color: #ffffff; /* 버튼 글자색 */
+  border: none; /* 테두리 없애기 */
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px; /* 버튼 모서리 둥글게 */
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* 호버/클릭 효과를 위한 전환 */
+  margin-top: 0.5rem; /* 제목과 버튼 사이 간격 */
+}
+
+.DetailItem_container button:hover {
+  background-color: #0056b3; /* 호버 시 색상 진하게 */
+  transform: translateY(-2px); /* 호버 시 살짝 위로 */
+}
+
+.DetailItem_container button:active {
+  transform: translateY(0); /* 클릭 시 원위치 */
+}
+
+/* 버튼 내부 Link 스타일 */
+.DetailItem_container button a {
+  text-decoration: none; /* 밑줄 제거 */
+  color: inherit; /* 부모 버튼의 글자색 상속 */
+}
+
+/* 반응형 디자인을 위한 미디어 쿼리 (선택 사항) */
+@media (max-width: 768px) {
+  .DetailItem_container {
+    width: calc(50% - 2rem); /* 2열로 배치될 경우 너비 조절 */
+    margin: 1rem 0.5rem; /* 간격 조절 */
+  }
+}
+
+@media (max-width: 480px) {
+  .DetailItem_container {
+    width: calc(100% - 2rem); /* 1열로 배치될 경우 너비 조절 */
+    margin: 1rem auto; /* 가운데 정렬 */
+  }
+  .DetailItem_container header img {
+    height: 200px; /* 모바일에서 이미지 높이 조절 */
+  }
+}

@@ -1,0 +1,174 @@
+.Detail_container {
+  display: flex;
+  flex-direction: column; /* 세로로 정렬 */
+  align-items: center; /* 가운데 정렬 */
+  padding: 40px 20px; /* 상하좌우 패딩 */
+  max-width: 1200px; /* 전체 컨테이너의 최대 너비 제한 */
+  margin: 20px auto; /* 중앙 정렬 및 위아래 간격 */
+  background-color: #fff; /* 배경색 */
+  border-radius: 12px; /* 모서리 둥글게 */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+}
+
+/* 헤더 (이미지 포함) 스타일 */
+.Detail_container header {
+  width: 100%;
+  display: flex;
+  justify-content: center; /* 이미지를 가운데 정렬 */
+  margin-bottom: 30px; /* 이미지 아래 간격 */
+}
+
+.Detail_container header div {
+  width: 500px; /* 이미지 컨테이너 너비 고정 */
+  height: 500px; /* 이미지 컨테이너 높이 고정 */
+  border-radius: 8px; /* 컨테이너 모서리 둥글게 */
+  overflow: hidden; /* 이미지가 컨테이너 밖으로 나가지 않도록 숨김 */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* 이미지에 대한 그림자 */
+}
+
+.Detail_container header img {
+  width: 100%; /* 부모 div 너비에 맞춤 */
+  height: 100%; /* 부모 div 높이에 맞춤 */
+  object-fit: cover; /* 이미지를 비율 유지하며 꽉 채움 */
+  display: block; /* 이미지 하단 공백 제거 */
+}
+
+/* 섹션 (텍스트 정보) 스타일 */
+.Detail_container section {
+  width: 100%;
+  max-width: 800px; /* 섹션 내용의 최대 너비 */
+  text-align: center; /* 텍스트 가운데 정렬 */
+}
+
+/* Publisher (출처) 스타일 */
+.Detail_container section span:first-of-type {
+  display: block; /* 한 줄 전체 사용 */
+  font-size: 1.1em;
+  color: #777;
+  margin-bottom: 10px;
+  text-transform: uppercase; /* 대문자 변환 */
+  letter-spacing: 1px; /* 글자 간격 */
+}
+
+/* Title (제목) 스타일 */
+.Detail_container section h3 {
+  font-size: 2.8em;
+  color: #333;
+  margin-bottom: 25px;
+  line-height: 1.2;
+}
+
+/* 즐겨찾기 추가 버튼 스타일 */
+.Detail_container section button {
+  background-color: #ff6347; /* 토마토 색상 */
+  color: #fff;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-bottom: 30px; /* 버튼 아래 간격 */
+  font-weight: bold;
+}
+
+.Detail_container section button:hover {
+  background-color: #e04e33; /* 호버 시 색상 진하게 */
+  transform: translateY(-3px); /* 살짝 위로 */
+}
+
+.Detail_container section button:active {
+  transform: translateY(0); /* 클릭 시 원위치 */
+}
+
+/* 재료 섹션 제목 */
+.Detail_container section div span {
+  font-size: 1.5em;
+  color: #555;
+  margin-bottom: 15px;
+  display: block; /* 한 줄 전체 사용 */
+  font-weight: 600;
+  border-bottom: 2px solid #eee; /* 밑줄 추가 */
+  padding-bottom: 10px;
+  margin-top: 30px; /* 위쪽 여백 */
+}
+
+/* 재료 목록 (ul) 스타일 */
+.Detail_container section ul {
+  list-style: none; /* 목록 마커 제거 */
+  padding: 0;
+  margin: 0;
+  display: grid; /* 그리드 레이아웃 */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 반응형 2열 (최소 280px) */
+  gap: 15px; /* 그리드 아이템 간 간격 */
+  text-align: left; /* 재료 텍스트 왼쪽 정렬 */
+}
+
+/* 각 재료 항목 (li) 스타일 */
+.Detail_container section ul li {
+  background-color: #f9f9f9; /* 재료 항목 배경색 */
+  padding: 15px 20px;
+  border-radius: 8px;
+  font-size: 1.1em;
+  color: #444;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* 은은한 그림자 */
+}
+
+.Detail_container section ul li::before {
+  content: '✔️'; /* 체크 마크 아이콘 추가 */
+  margin-right: 10px;
+  color: #28a745; /* 아이콘 색상 */
+  font-size: 1.2em;
+}
+
+/* 반응형 디자인을 위한 미디어 쿼리 */
+@media (max-width: 900px) {
+  .Detail_container {
+    padding: 30px 15px;
+    margin: 15px auto;
+  }
+  .Detail_container header div {
+    width: 400px;
+    height: 400px;
+  }
+  .Detail_container section h3 {
+    font-size: 2.2em;
+  }
+  .Detail_container section button {
+    padding: 12px 25px;
+    font-size: 1.1em;
+  }
+  .Detail_container section ul {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 너비 조절 */
+  }
+}
+
+@media (max-width: 600px) {
+  .Detail_container {
+    padding: 20px 10px;
+    border-radius: 0; /* 모바일에서 모서리 둥글기 제거 */
+    box-shadow: none; /* 모바일에서 그림자 제거 */
+  }
+  .Detail_container header div {
+    width: 100%; /* 모바일에서 이미지 너비 100% */
+    height: 300px; /* 모바일에서 이미지 높이 조절 */
+  }
+  .Detail_container section h3 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+  }
+  .Detail_container section button {
+    padding: 10px 20px;
+    font-size: 1em;
+  }
+  .Detail_container section ul {
+    grid-template-columns: 1fr; /* 모바일에서 1열로 변경 */
+    gap: 10px;
+  }
+  .Detail_container section ul li {
+    padding: 12px 15px;
+    font-size: 1em;
+  }
+}
