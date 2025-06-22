@@ -1,0 +1,12 @@
+.Favorites_container{
+  margin-top: 2em;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.Favorites_no_search{
+  display:flex;
+  justify-content: center;
+  margin-top: 2em;
+}
